@@ -2,6 +2,7 @@ package dev.limlei2.runners;
 
 import dev.limlei2.runners.run.Location;
 import dev.limlei2.runners.run.Run;
+import dev.limlei2.runners.run.RunRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -21,11 +22,11 @@ public class RunnersApplication {
 		log.info("Application start successfully!");
 	}
 
-	@Bean
-	CommandLineRunner runner() {
-		return args -> {
-			Run run = new Run(1, "First Run", LocalDateTime.now(), LocalDateTime.now().plusHours(1), 5, Location.OUTDOOR);
-			log.info("Run: {}", run);
-		};
-	}
+//	@Bean
+//	CommandLineRunner runner(RunRepository runRepository) {
+//		return args -> {
+//			Run run = new Run(1, "First Run", LocalDateTime.now(), LocalDateTime.now().plusHours(1), 5, Location.OUTDOOR);
+//			runRepository.create(run);
+//		};
+//	}
 }
